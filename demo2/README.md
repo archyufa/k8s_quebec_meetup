@@ -1,6 +1,6 @@
-# Demo 3: Create docker container of "Happy Birthday K8s" application.
+# Demo 3: Create docker container of "Bienvenue au K8s-Quebec Meetup!" application.
 This Demo App was written in "go" and supposed to be pushed to docker registry.
-K8s will fetch our "Happy Birthday K8s" application. from docker Registry
+K8s will fetch our "Bienvenue au K8s-Quebec Meetup!" application. from docker Registry
 and deploy pod, service, deployment. Farther we going to test how Replicaton
 Controller puts cluster to desired state. We will than Scale Application and
 perform Rolling Update of new version of the App.
@@ -18,8 +18,8 @@ chmod +x ./build.sh
  Push to docker registry:
 
 ```
-docker build -t archyufa/webk8sbirthday:1.0.4 .
-docker push archyufa/webk8sbirthday:1.0.4
+docker build -t archyufa/k8squebec:1.0 .
+docker push archyufa/k8squebec:1.0
 ```
 
 2. Show configs with 3 replicas.
@@ -30,7 +30,7 @@ docker push archyufa/webk8sbirthday:1.0.4
 
  *Option 1:*
 
- `kubectl run kdemo --image=archyufa/webk8sbirthday:1.0.3 --port=8080`
+ `kubectl run kdemo --image=archyufa/k8squebec:1.0 --port=8080`
 
  *Option 2:*
 
@@ -82,7 +82,7 @@ kubectl scale deployment/kdemo --replicas=5
 
 `kubectl edit deployment/kdemo`
 
-Change to (image: archyufa/webk8sbirthday:1.0.4)
+Change to (image: archyufa/k8squebec:1.0)
 
 ## Rollback
 
